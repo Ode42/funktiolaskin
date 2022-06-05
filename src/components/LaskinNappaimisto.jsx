@@ -6,35 +6,37 @@ export default function LaskinNappaimisto(props) {
 
   const lisaaRiviNappi = (rivi) => {
     props.lisaaRivi(rivi);
-  }
+  };
 
   return (
     <>
-    <div className="lukutaulu">
-      {[...Array(10)].map((_, i) => {
-        return (
-          <button
-            key={i}
-            className="luku"
-            onClick={() => {
-              const number = i;
-              setNumbers(numbers.concat(number));
-            }}
-          >
-            {i}
-          </button>
-        );
-      })}
-      
-    </div>
-    <button
+      <div className="lukutaulu">
+        {[...Array(10)].map((_, i) => {
+          return (
+            <button
+              key={i}
+              className="luku"
+              onClick={() => {
+                const number = i;
+                setNumbers(numbers.concat(number));
+              }}
+            >
+              {i}
+            </button>
+          );
+        })}
+      </div>
+      <button
         onClick={() => {
-          const uusiLuku = parseInt(numbers.join(""));
-          lisaaRiviNappi(uusiLuku)
+          const rivi = {
+            operaatio: "-",
+            luku: parseInt(numbers.join("")),
+          };
+          lisaaRiviNappi(rivi);
           setNumbers([]);
         }}
       >
-        Submit
+        -
       </button>
     </>
   );
