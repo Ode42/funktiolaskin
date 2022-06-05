@@ -1,0 +1,15 @@
+.lukutaulu {
+  background-color: aquamarine;
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.luku {
+  background-color: antiquewhite;
+  flex: 1 1 100px;
+  height: 75px;
+}
