@@ -1,10 +1,19 @@
 import React from "react";
 
-const LausekeRivi = () => {
+const LausekeRivi = (props) => {
+  const rivit = props.rivit;
   return (
     <div>
       <p>Lauseke: </p>
-      <p id="lauseke-rivi"></p>
+      <p id="lauseke-rivi">
+        {
+          rivit.map(rivi => (
+            <>
+            {rivi}-
+            </>
+          ))
+        }
+      </p>
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
 
-export default function LaskinNäppäimisto() {
-  const [luku, setLuku] = useState(0);
+export default function LaskinNappaimisto(props) {
   const [numbers, setNumbers] = useState([]);
+
+  const lisaaRiviNappi = (rivi) => {
+    props.lisaaRivi(rivi);
+  }
 
   return (
     <>
@@ -26,8 +29,8 @@ export default function LaskinNäppäimisto() {
     </div>
     <button
         onClick={() => {
-          const newNumber = parseInt(numbers.join(""));
-          console.log(newNumber);
+          const uusiLuku = parseInt(numbers.join(""));
+          lisaaRiviNappi(uusiLuku)
           setNumbers([]);
         }}
       >
