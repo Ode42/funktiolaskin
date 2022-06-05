@@ -6,6 +6,7 @@ export default function LaskinNäppäimisto() {
   const [numbers, setNumbers] = useState([]);
 
   return (
+    <>
     <div className="lukutaulu">
       {[...Array(10)].map((_, i) => {
         return (
@@ -21,7 +22,9 @@ export default function LaskinNäppäimisto() {
           </button>
         );
       })}
-      <button
+      
+    </div>
+    <button
         onClick={() => {
           const newNumber = parseInt(numbers.join(""));
           console.log(newNumber);
@@ -30,6 +33,6 @@ export default function LaskinNäppäimisto() {
       >
         Submit
       </button>
-    </div>
+    </>
   );
 }
