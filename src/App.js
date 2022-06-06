@@ -6,16 +6,16 @@ import LaskinNappaimisto from "./components/LaskinNappaimisto";
 import { useState } from "react";
 
 function App() {
-  const [rivit, setRivit] = useState([])
+  const [tapahtuma, setTapahtuma] = useState([]);
 
-  const lisaaRivi = (uusiRivi) => {
-    setRivit(rivit.concat(uusiRivi))
-  }
+  const lisaaTapahtuma = (uusiTapahtuma) => {
+    setTapahtuma(uusiTapahtuma);
+  };
   return (
     <div className="App">
       <h1>Funktiolaskin</h1>
-      <LausekeRivi rivit={rivit} />
-      <LaskinNappaimisto lisaaRivi={lisaaRivi}/>
+      <LausekeRivi tapahtuma={tapahtuma} />
+      <LaskinNappaimisto lisaaTapahtuma={lisaaTapahtuma} />
     </div>
   );
 }

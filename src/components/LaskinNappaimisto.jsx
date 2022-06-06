@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 
 export default function LaskinNappaimisto(props) {
-  const [numbers, setNumbers] = useState([]);
+  const [tapahtuma, setTapahtuma] = useState([]);
 
-  const lisaaRiviNappi = (rivi) => {
-    props.lisaaRivi(rivi);
+  const lisaaTapahtumaNappi = (tapahtuma) => {
+    props.lisaaTapahtuma(tapahtuma);
   };
 
   return (
@@ -18,7 +18,23 @@ export default function LaskinNappaimisto(props) {
               className="luku"
               onClick={() => {
                 const number = i;
-                setNumbers(numbers.concat(number));
+                setTapahtuma(tapahtuma.concat(number));
+              }}
+            >
+              {i}
+            </button>
+          );
+        })}
+      </div>
+      <div className="operaatiot">
+        {["+", "-", "/", "*"].map((i) => {
+          return (
+            <button
+              key={i}
+              className="operaatio"
+              onClick={() => {
+                const operaatio = i;
+                setTapahtuma(tapahtuma.concat(operaatio));
               }}
             >
               {i}
@@ -28,15 +44,11 @@ export default function LaskinNappaimisto(props) {
       </div>
       <button
         onClick={() => {
-          const rivi = {
-            operaatio: "-",
-            luku: parseInt(numbers.join("")),
-          };
-          lisaaRiviNappi(rivi);
-          setNumbers([]);
+          lisaaTapahtumaNappi(tapahtuma);
+          setTapahtuma([]);
         }}
       >
-        -
+        laske
       </button>
     </>
   );
